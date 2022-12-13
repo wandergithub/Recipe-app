@@ -1,3 +1,44 @@
-<% @foods.each do |food| %>
-  <%= food.name %>
+<%= form_with method: :post do |form| %>
+  <div class="input-group m-5">
+    <span class="input-group-text" id="basic-addon1">Food</span>
+    <%= form.text_field :name, placeholder: "Food name", class: "form-control" %>
+    <label class="input-group-text" for="inputGroupSelect01">Unit</label>
+    <select class="form-select" id="inputGroupSelect01">
+      <option selected>Choose...</option>
+      <option value="1">One</option>
+      <option value="2">Two</option>
+      <option value="3">Three</option>
+    </select>
+    <span class="input-group-text" id="basic-addon1">Price</span>
+    <%= form.text_field :name, placeholder: "Food name", class: "form-control" %>
+    <%= form.submit "Add Food" , class: "btn btn-primary" %>
+  </div>
 <% end %>
+
+<table
+  class="mt-5 mx-auto table table-striped table-bordered"
+  style="width: 90%;"
+>
+  <thead>
+    <tr>
+      <th scope="col">Food
+      </th>
+      <th scope="col">Measurement unit
+      </th>
+      <th scope="col">Unit Price
+      </th>
+      <th scope="col">Actions
+      </th>
+    </tr>
+  </thead>
+  <tbody>
+    <% @foods.each do |food| %>
+      <tr>
+        <td><%= food.name %></td>
+        <td><%= food.measurement_unit %></td>
+        <td>$<%= food.price %></td>
+        <td>Delete</td>
+      </tr>
+    <% end %>
+  </tbody>
+</table>
