@@ -2,15 +2,13 @@
   <div class="input-group m-5">
     <span class="input-group-text" id="basic-addon1">Food</span>
     <%= form.text_field :name, placeholder: "Food name", class: "form-control" %>
+    
     <label class="input-group-text" for="inputGroupSelect01">Unit</label>
-    <select class="form-select" id="inputGroupSelect01">
-      <option selected>Choose...</option>
-      <option value="1">One</option>
-      <option value="2">Two</option>
-      <option value="3">Three</option>
-    </select>
+    <%= form.select :city, ["grams", "punds", "units"], selected: "grams", class: "form-select" %>
+    
     <span class="input-group-text" id="basic-addon1">Price</span>
-    <%= form.text_field :name, placeholder: "Food name", class: "form-control" %>
+    <%= form.number_field :price, in: 1.0..100.0, step: 1 , class: "form-control" %>
+
     <%= form.submit "Add Food" , class: "btn btn-primary" %>
   </div>
 <% end %>
