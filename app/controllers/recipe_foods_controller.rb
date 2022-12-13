@@ -1,5 +1,5 @@
 class RecipeFoodsController < ApplicationController
-    # GET /recipe_foods/new
+  # GET /recipe_foods/new
   def new
     @recipe_food = RecipeFood.new
     @recipe_food.recipe_id = params[:recipe_id]
@@ -46,7 +46,7 @@ class RecipeFoodsController < ApplicationController
   # DELETE /recipe_foods/1 or /recipe_foods/1.json
   def destroy
     @recipe_food.destroy
-    
+
     respond_to do |format|
       format.html { redirect_to recipe_url(@recipe_food.recipe_id), notice: 'Recipe food was successfully destroyed.' }
       format.json { head :no_content }
