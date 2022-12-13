@@ -9,6 +9,6 @@
 (1..10).each do |id|
   user = User.create(name: "User #{id}")
   recipe = Recipe.create(name: "Recipe #{id}", description: "Lorem ipsum dolor saber", user:)
-  food = Food.create(name: "Food #{id}", measurement_unit: "pund", user:)
+  food = Food.create(name: "Food #{id}", measurement_unit: "grams", price: rand(10), user:)
 end
   Recipe.first.foods = Food.all
