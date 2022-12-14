@@ -60,8 +60,9 @@ ActiveRecord::Schema[7.0].define(version: 2022_12_13_174718) do
     t.index ["reset_password_token"], name: "index_users_on_reset_password_token", unique: true
   end
 
-  add_foreign_key "foods", "users"
-  add_foreign_key "recipe_foods", "foods"
-  add_foreign_key "recipe_foods", "recipes"
-  add_foreign_key "recipes", "users"
+
+  add_foreign_key "foods", "users", on_delete: :cascade
+  add_foreign_key "recipe_foods", "foods", on_delete: :cascade
+  add_foreign_key "recipe_foods", "recipes", on_delete: :cascade
+  add_foreign_key "recipes", "users", on_delete: :cascade
 end
