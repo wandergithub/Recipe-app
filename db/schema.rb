@@ -53,8 +53,8 @@ ActiveRecord::Schema[7.0].define(version: 2022_12_12_202535) do
     t.datetime "updated_at", null: false
   end
 
-  add_foreign_key "foods", "users"
-  add_foreign_key "recipe_foods", "foods"
-  add_foreign_key "recipe_foods", "recipes"
-  add_foreign_key "recipes", "users"
+  add_foreign_key "foods", "users", on_delete: :cascade
+  add_foreign_key "recipe_foods", "foods", on_delete: :cascade
+  add_foreign_key "recipe_foods", "recipes", on_delete: :cascade
+  add_foreign_key "recipes", "users", on_delete: :cascade
 end
