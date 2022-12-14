@@ -1,18 +1,4 @@
-<%= form_with model: @food, url: "/foods", local: true, scope: :food do |form| %>
-  <div class="input-group m-5">
-    <span class="input-group-text" id="basic-addon1">Food</span>
-    <%= form.text_field :name, placeholder: "Food name", class: "form-control" %>
-
-    <label class="input-group-text" for="inputGroupSelect01">Unit</label>
-    <%= form.select :measurement_unit, ["grams", "punds", "units"], selected: "grams", class: "form-select" %>
-
-    <span class="input-group-text" id="basic-addon1">Price</span>
-    <%= form.number_field :price, in: 1.0..100.0, step: 1 , class: "form-control" %>
-
-    <%= form.submit "Add Food" , class: "btn btn-primary" %>
-  </div>
-<% end %>
-
+<%= link_to "Add Food", new_food_path , class: "btn btn-primary" %>
 <table
   class="mt-5 mx-auto table table-striped table-bordered"
   style="width: 90%;"
@@ -20,6 +6,9 @@
   <thead>
     <tr>
       <th scope="col">Food
+      </th>
+      <th scope="col">Quantity
+      </th>
       </th>
       <th scope="col">Measurement unit
       </th>
@@ -33,6 +22,7 @@
     <% @foods.each do |food| %>
       <tr>
         <td><%= food.name %></td>
+        <td><%= food.quantity %></td>
         <td><%= food.measurement_unit %></td>
         <td>$<%= food.price %></td>
         <td><%= link_to "Delete" , food_path(food.id), data: { "turbo-method": :delete } %></td>
