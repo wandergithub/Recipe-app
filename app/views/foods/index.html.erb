@@ -5,6 +5,9 @@
 
     <label class="input-group-text" for="inputGroupSelect01">Unit</label>
     <%= form.select :measurement_unit, ["grams", "punds", "units"], selected: "grams", class: "form-select" %>
+    
+    <span class="input-group-text" id="basic-addon1">Quantity</span>
+    <%= form.number_field :quantity, in: 1.0..100.0, step: 1 , class: "form-control" %>
 
     <span class="input-group-text" id="basic-addon1">Price</span>
     <%= form.number_field :price, in: 1.0..100.0, step: 1 , class: "form-control" %>
@@ -21,6 +24,9 @@
     <tr>
       <th scope="col">Food
       </th>
+      <th scope="col">Quantity
+      </th>
+      </th>
       <th scope="col">Measurement unit
       </th>
       <th scope="col">Unit Price
@@ -33,6 +39,7 @@
     <% @foods.each do |food| %>
       <tr>
         <td><%= food.name %></td>
+        <td><%= food.quantity %></td>
         <td><%= food.measurement_unit %></td>
         <td>$<%= food.price %></td>
         <td><%= link_to "Delete" , food_path(food.id), data: { "turbo-method": :delete } %></td>
