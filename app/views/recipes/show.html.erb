@@ -1,0 +1,64 @@
+<p style="color: green"><%= notice %></p>
+
+<div class="container border border-dark border-2 rounded p-3">
+  <h2 class="text-center pb-5 fw-bold fs-1"> <%= @recipe.name %></h2>
+
+  <div class="container">
+    <div class="row">
+      <div class="col-9 fs-5">
+        <p><span class="fw-bold">Preparation Time:&nbsp; </span> <%= @recipe.preparation_time %>&nbsp; hour</p>
+        <p><span class="fw-bold">Cooking Time:&nbsp; </span><%= @recipe.cooking_time %>&nbsp; hour</p>
+        <p class="fw-bold fs-3">Steps go here...</p>
+      </div>
+      <div class="col-3">
+        <div class="d-flex align-items-center fw-bold fs-3 gap-4">
+          Public <input class="text-white bg-dark" type="checkbox" checked=<%= @recipe.public %>>
+        </div>
+      </div>
+    </div>
+    <div class="row">
+      <div class="d-flex justify-content-between pb-4">
+        <a href="/shopping_list/<%= @recipe.id %>" class="btn btn-primary">Generate Shopping List</a>
+        <% if current_user.id == @recipe.user_id %>
+          <a href="/recipe_foods/<%= @recipe.id %>" class="btn btn-success">Add ingredient</a>
+        <% end %>
+      </div>
+    </div>
+  </div>
+
+  <div class="container">
+    <table class="table table-bordered table-striped">
+      <thead>
+        <tr class="text-center">
+          <th>Food</th>
+          <th>Quantity</th>
+          <th>Value</th>
+          <% if current_user.id == @recipe.user_id %>
+            <th>Actions</th>
+          <% end %>
+        </tr>
+      </thead>
+      <tbody>
+        <% if @recipe.recipe_foods.length === 0 %>
+        <tr class="text-center fw-bold">
+          <td colspan="4">No ingredients found</td>
+        </tr>
+        <% else %>
+          <% @recipe.recipe_foods.each do |ing| %>
+            <tr class="text-center">
+              <td><%= ing.food.name %></td>
+              <td><%= ing.quantity %> <%= ing.food.measurement_unit %></td>
+              <td><%= ing.food.price * ing.quantity %></td>
+              <% if current_user.id == @recipe.user_id %>
+                <td class="d-flex gap-3 justify-content-center">
+                  <%= link_to "Modify", edit_recipe_food_path(ing), class: 'btn btn-primary'%>
+                  <%= button_to "Delete", ing, method: :delete, class: 'btn btn-danger'%>
+                </td>
+              <% end %>
+            </tr>
+          <% end %>
+        <% end %>
+      </tbody>
+    </table>
+  </div>
+</div>

@@ -1,0 +1,12 @@
+<div class="container" id="<%= dom_id recipe %>">
+  <div class="row border border-dark border-2 p-2">
+    <div class="d-flex flex-column col-4">
+      <h2><%=recipe.name%></h2>
+        <p>By: <%= recipe.user.name%></p>
+    </div>
+    <p class="col-8 d-flex align-items-center m-0">
+      <p class="row">Total food items: <%=recipe.recipe_foods.length%></p>
+      <p class="row">Total price: <%= @total_price %></p>
+    </p>
+  </div>
+</div>
