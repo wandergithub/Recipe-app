@@ -3,6 +3,9 @@ class FoodsController < ApplicationController
 
   def index
     @foods = Food.where(user: current_user)
+  end
+
+  def new
     @food = Food.new
   end
 
