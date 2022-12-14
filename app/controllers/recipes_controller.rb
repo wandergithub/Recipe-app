@@ -1,8 +1,7 @@
 class RecipesController < ApplicationController
   # GET /recipes or /recipes.json
   def index
-    # @recipes = Recipe.order(:id).page(params[:page]).per(2)
-    @recipes = Recipe.all
+    @recipes = Recipe.order(:id).page(params[:page]).per(2)
   end
 
   # GET /recipes/1 or /recipes/1.json
