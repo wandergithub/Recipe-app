@@ -1,12 +1,14 @@
 class FoodsController < ApplicationController
+  before_action :authenticate_user!
+
   def index
-    @foods = Food.all
+    @foods = Food.where(user: current_user)
     @food = Food.new
   end
 
   def create
     food = Food.new(food_params)
-    food.user = User.first
+    food.user = current_user
     flash[:message] = if food.save
                         'Food created successfully'
                       else
