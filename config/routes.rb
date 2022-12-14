@@ -6,7 +6,7 @@ Rails.application.routes.draw do
   post 'recipe_foods/:recipe_id', to: 'recipe_foods#create'
   resources :recipe_foods, only: [:destroy, :update, :edit]
   resources :recipes, only: [:index, :show, :new, :create, :edit, :update, :destroy]
-  resources :foods, only: [:index, :show, :new, :create, :edit, :update, :destroy]
+  resources :foods, only: [:index, :new, :create, :destroy]
 
   # Add root route
   root to: "foods#index"
