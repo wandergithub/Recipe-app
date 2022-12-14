@@ -12,14 +12,14 @@
       </div>
       <div class="col-3">
         <div class="d-flex align-items-center fw-bold fs-3 gap-4">
-          Public <input class="text-white bg-dark" type="checkbox" checked=<%= @recipe.public %>>
+          Public <input class="text-white bg-dark public" type="checkbox" checked=<%= @recipe.public %>>
         </div>
       </div>
     </div>
     <div class="row">
       <div class="d-flex justify-content-between pb-4">
         <a href="/shopping_list/<%= @recipe.id %>" class="btn btn-primary">Generate Shopping List</a>
-        <% if current_user.id == @recipe.user_id %>
+        <% if current_user && current_user.id == @recipe.user_id %>
           <a href="/recipe_foods/<%= @recipe.id %>" class="btn btn-success">Add ingredient</a>
         <% end %>
       </div>
@@ -33,7 +33,7 @@
           <th>Food</th>
           <th>Quantity</th>
           <th>Value</th>
-          <% if current_user.id == @recipe.user_id %>
+          <% if current_user && current_user.id == @recipe.user_id %>
             <th>Actions</th>
           <% end %>
         </tr>
@@ -49,7 +49,7 @@
               <td><%= ing.food.name %></td>
               <td><%= ing.quantity %> <%= ing.food.measurement_unit %></td>
               <td><%= ing.food.price * ing.quantity %></td>
-              <% if current_user.id == @recipe.user_id %>
+              <% if current_user && current_user.id == @recipe.user_id %>
                 <td class="d-flex gap-3 justify-content-center">
                   <%= link_to "Modify", edit_recipe_food_path(ing), class: 'btn btn-primary'%>
                   <%= button_to "Delete", ing, method: :delete, class: 'btn btn-danger'%>

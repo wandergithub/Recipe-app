@@ -1,7 +1,10 @@
 class RecipesController < ApplicationController
+  # before_action :set_recipe, only: %i[show edit update destroy]
+  # skip_before_action :authenticate_user!, only: %i[public show shopping_list]
+
   # GET /recipes or /recipes.json
   def index
-    @recipes = Recipe.order(:id).page(params[:page]).per(2)
+    @recipes = Recipe.includes(recipe_foods: [:food]).order(:id).page(params[:page]).per(2)
   end
 
   # GET /recipes/1 or /recipes/1.json
@@ -15,7 +18,8 @@ class RecipesController < ApplicationController
   # POST /recipes or /recipes.json
   def create
     @recipe = Recipe.new(recipe_params)
-    @recipe.user_id = current_user.id
+    # @recipe.user_id = current_user.id
+    @recipe.user = current_user
 
     respond_to do |format|
       if @recipe.save
@@ -52,7 +56,7 @@ class RecipesController < ApplicationController
   end
 
   def public
-    @recipes = Recipe.where(public: true).order(:id).page(params[:page]).per(2)
+    @recipes = Recipe.includes(:user, recipe_foods: [:food]).where(public: true).order(:id).page(params[:page]).per(2)
     @total_price = []
     @recipes.each do |recipe|
       @total_price << recipe.recipe_foods.inject(0) { |sum, e| sum + (e.food.price * e.quantity) }
@@ -63,7 +67,7 @@ class RecipesController < ApplicationController
   end
 
   def shopping_list
-    @ingredient = RecipeFood.where(recipe_id: params[:recipe_id])
+    @ingredient = RecipeFood.includes(:food).where(recipe_id: params[:recipe_id])
     @total_price = @ingredient.inject(0) { |sum, e| sum + (e.food.price * e.quantity) }
   end
 
