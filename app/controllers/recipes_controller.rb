@@ -5,17 +5,14 @@ class RecipesController < ApplicationController
     @recipes = Recipe.includes(recipe_foods: [:food]).order(:id).page(params[:page]).per(4)
   end
 
-  
   def show
     @recipe = Recipe.find(params[:id])
   end
 
- 
   def new
     @recipe = Recipe.new
   end
 
-  
   def create
     @recipe = Recipe.new(recipe_params)
     @recipe.user = current_user
@@ -31,7 +28,6 @@ class RecipesController < ApplicationController
     end
   end
 
-
   def update
     respond_to do |format|
       if @recipe.update(recipe_params)
@@ -43,7 +39,6 @@ class RecipesController < ApplicationController
       end
     end
   end
-
 
   def destroy
     @recipe.destroy
@@ -72,7 +67,6 @@ class RecipesController < ApplicationController
   def set_recipe
     @recipe = Recipe.find(params[:id])
   end
-
 
   def recipe_params
     params.require(:recipe).permit(:name, :preparation_time, :cooking_time, :description, :public, :user_id)
