@@ -1,0 +1,16 @@
+<header class="d-flex justify-content-between align-items-center px-5 bg-dark text-white py-3">
+  <%= link_to "Recipe App", root_path, class: "nav-link text-white fs-4 fw-bold" %>
+  <nav>
+    <ul class="d-flex gap-2 m-0">
+      <li class="nav-item"><%= link_to "Public recipe", public_recipes_path, class: "btn btn-secondary text-white" %></li>
+      <% if user_signed_in? %>
+        <li class="nav-item"><%= link_to "Food", foods_path, class: "btn btn-primary text-white" %></li>
+        <li class="nav-item"><%= link_to "Recipe", recipes_path, class: "btn btn-success text-white" %></li>
+        <li class="nav-item"><%= button_to "Logout", destroy_user_session_path, method: :delete, class: "btn btn-danger text-white" %></li>
+      <% else %>
+        <li class="nav-item"><%= link_to "Sign in", new_user_session_path, class: "btn btn-success" %></li>
+        <li class="nav-item"><%= link_to "Sign up", new_user_registration_path, class: "btn btn-primary" %></li>
+      <% end %>
+    </ul>
+  </nav>
+</header>

@@ -49,6 +49,10 @@ select {
   font: inherit;
 }
 
+.public {
+  transform: scale(2);
+}
+
 @media (prefers-reduced-motion: reduce) {
   html:focus-within {
     scroll-behavior: auto;
