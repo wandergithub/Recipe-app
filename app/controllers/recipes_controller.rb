@@ -4,7 +4,7 @@ class RecipesController < ApplicationController
 
   # GET /recipes or /recipes.json
   def index
-    @recipes = Recipe.includes(recipe_foods: [:food]).order(:id)
+    @recipes = Recipe.includes(recipe_foods: [:food]).order(:id).page(params[:page]).per(2)
   end
 
   # GET /recipes/1 or /recipes/1.json
