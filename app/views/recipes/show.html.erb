@@ -12,15 +12,25 @@
       </div>
       <div class="col-3">
         <div class="d-flex align-items-center fw-bold fs-3 gap-4">
-          Public <input class="text-white bg-dark public" type="checkbox" checked=<%= @recipe.public %>>
+
+          <%= form_with(model: @recipe) do |form| %>
+            Public <%= form.check_box :public, :value => @recipe.public, disabled: true, class: 'text-white bg-dark public' %>
+          <% end %>
         </div>
       </div>
     </div>
     <div class="row">
       <div class="d-flex justify-content-between pb-4">
-        <a href="/shopping_list/<%= @recipe.id %>" class="btn btn-primary">Generate Shopping List</a>
+
+        <a href="/shopping_list/<%= @recipe.id %>" class="btn btn-primary">
+          <i class="fas fa-shopping-cart"></i>
+          <span>Generate Shopping List</span>
+        </a>
         <% if current_user && current_user.id == @recipe.user_id %>
-          <a href="/recipe_foods/<%= @recipe.id %>" class="btn btn-success">Add ingredient</a>
+          <a href="/recipe_foods/<%= @recipe.id %>" class="btn btn-success">
+            <i class="fas fa-plus"></i>
+            <span>Add Ingredient</span>
+          </a>
         <% end %>
       </div>
     </div>
@@ -41,7 +51,10 @@
       <tbody>
         <% if @recipe.recipe_foods.length === 0 %>
         <tr class="text-center fw-bold">
-          <td colspan="4">No ingredients found</td>
+          <td colspan="4">
+            <i class="far fa-frown"></i>
+            <span>No ingredients found</span>
+            </td>
         </tr>
         <% else %>
           <% @recipe.recipe_foods.each do |ing| %>
@@ -51,8 +64,12 @@
               <td><%= ing.food.price * ing.quantity %></td>
               <% if current_user && current_user.id == @recipe.user_id %>
                 <td class="d-flex gap-3 justify-content-center">
-                  <%= link_to "Modify", edit_recipe_food_path(ing), class: 'btn btn-primary'%>
-                  <%= button_to "Delete", ing, method: :delete, class: 'btn btn-danger'%>
+                  <%= link_to edit_recipe_food_path(ing), class: 'btn btn-primary' do%>
+                    <i class="fas fa-edit"></i>
+                  <% end %>
+                  <%= button_to ing, method: :delete, class: 'btn btn-danger' do%>
+                    <i class="fas fa-trash-alt"></i>
+                  <% end %>
                 </td>
               <% end %>
             </tr>

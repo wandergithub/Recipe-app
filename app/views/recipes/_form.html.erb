@@ -18,12 +18,12 @@
 
   <div>
     <%= form.label :preparation_time, style: "display: block" %>
-    <%= form.text_field :preparation_time, type: "number", step: "0.1" %>
+    <%= form.text_field :preparation_time, type: "number", step: "0.1", min: 1 %>
   </div>
 
   <div>
     <%= form.label :cooking_time, style: "display: block" %>
-    <%= form.text_field :cooking_time, type: "number", step: "0.1" %>
+    <%= form.text_field :cooking_time, type: "number", step: "0.1", min: 1 %>
   </div>
 
   <div>

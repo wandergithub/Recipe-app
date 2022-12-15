@@ -1,7 +1,10 @@
 <%= paginate @recipes %>
 <div id="recipes" class="d-flex gap-3 flex-column">
   <% if @recipes.length === 0 %>
-    <div class="w-100 text-center fs-4 fw-bold border border-dark border-2 p-2">No Public Recipes found</div>
+    <div class="w-100 text-center fs-4 fw-bold border border-dark border-2 p-2">
+      <i class="far fa-frown"></i>
+      <span>No Public Recipes found</span>
+    </div>
   <% else %>
     <% @recipes.each_with_index do |recipe, index| %>
         <%= link_to recipe_path(recipe), class: 'text-decoration-none text-dark recipe-links' do %>

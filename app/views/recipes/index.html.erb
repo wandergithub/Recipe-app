@@ -2,16 +2,22 @@
 
 <% if current_user%>
   <div class="text-end pb-4">
-    <%= link_to "New recipe", new_recipe_path, class: 'btn btn-secondary' %>
+    <%= link_to new_recipe_path, class: 'btn btn-secondary' do%>
+      <i class="fas fa-plus"></i>
+      <span class="">New Recipe</span>
+    <% end %>
   </div>
 <% end %>
 <%= paginate @recipes %>
 <div id="recipes" class="d-flex gap-3 flex-column">
   <% if @recipes.length === 0 %>
-    <div class="w-100 text-center fs-4 fw-bold border border-dark border-2 p-2">No Recipes found</div>
+    <div class="w-100 text-center fs-4 fw-bold border border-dark border-2 p-2">
+      <i class="far fa-frown"></i>
+      <span>No Recipes found</span>
+    </div>
   <% else %>
     <% @recipes.each do |recipe| %>
-      <% if current_user.id == recipe.user_id %>
+      <% if current_user&.id == recipe.user_id %>
         <%= link_to recipe_path(recipe), class: 'text-decoration-none text-dark recipe-links' do %>
           <%= render recipe %>
         <% end %>

@@ -1,15 +1,43 @@
 <header class="d-flex justify-content-between align-items-center px-5 bg-dark text-white py-3">
-  <%= link_to "Recipe App", root_path, class: "nav-link text-white fs-4 fw-bold" %>
+
+  <div class="d-flex align-items-center">
+    <i class="far fa-clipboard fs-2"></i>
+    <%= link_to "Recipe App", root_path, class: "nav-link text-white fs-4 fw-bold" %>
+  </div>
   <nav>
     <ul class="d-flex gap-2 m-0">
-      <li class="nav-item"><%= link_to "Public recipe", public_recipes_path, class: "btn btn-secondary text-white" %></li>
+     
+      <%= link_to public_recipes_path, class: "btn btn-secondary" do %>
+        <i class="fas fa-globe"></i>
+        <span class="">Public recipe</span>
+      <% end %>
       <% if user_signed_in? %>
-        <li class="nav-item"><%= link_to "Food", foods_path, class: "btn btn-primary text-white" %></li>
-        <li class="nav-item"><%= link_to "Recipe", recipes_path, class: "btn btn-success text-white" %></li>
-        <li class="nav-item"><%= button_to "Logout", destroy_user_session_path, method: :delete, class: "btn btn-danger text-white" %></li>
+      
+        <%= link_to foods_path, class: "btn btn-primary" do %>
+          <i class="fa-solid fa-utensils"></i>
+          <span class="">Food</span>
+        <% end %>
+        
+        <%= link_to recipes_path, class: "btn btn-success" do %>
+          <i class="far fa-clipboard"></i>
+          <span class="">Recipe</span>
+        <% end %>
+        
+        <%= button_to destroy_user_session_path, method: :delete, class: "btn btn-danger" do %>
+          <i class="fa fa-sign-out" aria-hidden="true"></i>
+          <span class="">Logout</span>
+        <% end %>
       <% else %>
-        <li class="nav-item"><%= link_to "Sign in", new_user_session_path, class: "btn btn-success" %></li>
-        <li class="nav-item"><%= link_to "Sign up", new_user_registration_path, class: "btn btn-primary" %></li>
+  
+        <%= link_to new_user_session_path, class: "btn btn-success" do %> 
+          <i class="fa fa-sign-in" aria-hidden="true"></i>
+          Sign In
+        <% end %> 
+       
+        <%= link_to new_user_registration_path, class: "btn btn-primary" do %> 
+         <i class="fa fa-sign-in" aria-hidden="true"></i>
+          Sign Up
+        <% end %> 
       <% end %>
     </ul>
   </nav>
