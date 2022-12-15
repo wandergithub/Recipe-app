@@ -1,4 +1,4 @@
-<%= link_to "Back to foods", :back , class: "btn btn-secondary" %>
+<%= link_to "Back to foods", :back , class: "btn btn-secondary m-3" %>
 <%= form_with model: @food, url: "/foods", local: true, scope: :food do |form| %>
   <div class="input-group m-3">
     <span class="input-group-text" id="basic-addon1">Food</span>
@@ -16,5 +16,5 @@
     <span class="input-group-text" id="basic-addon1">Price</span>
     <%= form.number_field :price, in: 1.0..100.0, step: 1 , class: "form-control" %>
   </div>
-  <%= form.submit "Add Food" , class: "btn btn-primary" %>
+  <%= form.submit "Add Food" , class: "btn btn-primary m-3" %>
 <% end %>
