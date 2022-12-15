@@ -187,8 +187,6 @@ Example:
 
 ## 👥 Authors <a name="authors"></a>
 
-> Mention all of the collaborators of this project.
-
 👤 **Wander Gonzalez**
 
 - GitHub: [@wandergithub](https://github.com/wandergithub)
