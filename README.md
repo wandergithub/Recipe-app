@@ -61,7 +61,7 @@ After you're finished please remove all the comments and instructions!
 
 > Description of the Project
 
-**[The Recipe App]** keeps track of all our recipes, ingredients, and inventory. It will allow you to save ingredients, keep track of what you have, create recipes, and generate a shopping list based on what you have and what you are missing from a recipe.
+**The Recipe App** keeps track of all our recipes, ingredients, and inventory. It will allow you to save ingredients, keep track of what you have, create recipes, and generate a shopping list based on what you have and what you are missing from a recipe.
 
 ## 🛠 Built With <a name="built-with"></a>
 
@@ -168,10 +168,12 @@ Command:
 ```sh
    rspec spec
 ```
-
+<!--
 ### Deployment
 
 You can deploy this project using:
+
+-->
 
 <!--
 Example:
@@ -207,9 +209,9 @@ Example:
 
 > Describe 1 - 3 features you will add to the project.
 
-- [ ] **[new_feature_1]**
-- [ ] **[new_feature_2]**
-- [ ] **[new_feature_3]**
+- [ ] **Add dashboard for the app**
+- [ ] **Add inventory**
+- [ ] **Add inventory food**
 
 <p align="right">(<a href="#readme-top">back to top</a>)</p>
 
@@ -219,7 +221,7 @@ Example:
 
 Contributions, issues, and feature requests are welcome!
 
-Feel free to check the [issues page](../../issues/).
+Feel free to check the [issues page](https://github.com/wandergithub/Recipe-app/issues).
 
 <p align="right">(<a href="#readme-top">back to top</a>)</p>
 
