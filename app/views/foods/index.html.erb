@@ -1,0 +1,32 @@
+<%= link_to "Add Food", new_food_path , class: "btn btn-primary" %>
+<table
+  class="mt-5 mx-auto table table-striped table-bordered"
+  style="width: 90%;"
+>
+  <thead>
+    <tr>
+      <th scope="col">Food
+      </th>
+      <th scope="col">Quantity
+      </th>
+      </th>
+      <th scope="col">Measurement unit
+      </th>
+      <th scope="col">Unit Price
+      </th>
+      <th scope="col">Actions
+      </th>
+    </tr>
+  </thead>
+  <tbody>
+    <% @foods.each do |food| %>
+      <tr>
+        <td><%= food.name %></td>
+        <td><%= food.quantity %></td>
+        <td><%= food.measurement_unit %></td>
+        <td>$<%= food.price %></td>
+        <td><%= link_to "Delete" , food_path(food.id), data: { "turbo-method": :delete } %></td>
+      </tr>
+    <% end %>
+  </tbody>
+</table>
