@@ -2,8 +2,11 @@
   <div class="row border border-dark border-2 p-2">
     <div class="d-flex flex-column col-4">
       <h2><%=recipe.name%></h2>
-      <% if current_user&.id == recipe.user_id%>
-        <%= button_to "Remove", recipe, method: :delete, class: 'btn btn-danger'%>
+      <% if current_user.id == recipe.user_id%>
+        <%= button_to recipe, method: :delete, class: 'btn btn-danger' do%>
+          <i class="fas fa-minus"></i>
+          <span>Remove</span>
+        <% end %>
       <% end %>
     </div>
     <p class="col-8 d-flex align-items-center m-0">
