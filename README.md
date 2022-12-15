@@ -57,7 +57,7 @@ After you're finished please remove all the comments and instructions!
 
 <!-- PROJECT DESCRIPTION -->
 
-# 📖 [Recipe App] <a name="about-project"></a>
+# 📖 Recipe App <a name="about-project"></a>
 
 > Description of the Project
 
