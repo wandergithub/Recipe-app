@@ -8,7 +8,7 @@ describe '/foods/new foods form', type: :feature do
     fill_in 'user_email', with: @user.email
     fill_in 'user_password', with: @user.password
     click_button 'Log in'
-    #visit /foods/new form
+    # visit /foods/new form
     visit new_food_path
   end
 
