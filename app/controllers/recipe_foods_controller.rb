@@ -1,12 +1,12 @@
 class RecipeFoodsController < ApplicationController
-  # GET /recipe_foods/new
+
   def new
     @recipe_food = RecipeFood.new
     @recipe_food.recipe_id = params[:recipe_id]
     @foods = Food.all
   end
 
-  # POST /recipe_foods in html or /recipe_foods.json
+
   def create
     @recipe_food = RecipeFood.new
     @recipe_food.recipe_id = params[:recipe_id]
@@ -43,7 +43,6 @@ class RecipeFoodsController < ApplicationController
     end
   end
 
-  # DELETE /recipe_foods/1 or /recipe_foods/1.json
   def destroy
     @recipe_food.destroy
 
@@ -55,13 +54,13 @@ class RecipeFoodsController < ApplicationController
 
   private
 
-  # Use callbacks to share common setup or constraints between actions.
+
   def set_recipe_food
     @recipe_food = RecipeFood.find(params[:id])
   end
 
-  # Only allow a list of trusted parameters through.
+  
   def recipe_food_params
-    # params.require(:recipe_food).permit(:quantity, :recipe_id, :food_id)
+      params.require(:recipe_food).permit(:quantity, :recipe_id, :food_id)
   end
 end
