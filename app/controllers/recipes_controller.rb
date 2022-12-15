@@ -1,6 +1,7 @@
 class RecipesController < ApplicationController
-  before_action :set_recipe, only: %i[show edit update destroy]
 
+  before_action :set_recipe, only: %i[show edit update destroy]
+  
   def index
     @recipes = Recipe.includes(recipe_foods: [:food]).order(:id).page(params[:page]).per(4)
   end
