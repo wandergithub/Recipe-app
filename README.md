@@ -59,6 +59,27 @@ After you're finished please remove all the comments and instructions!
 
 # 📖 Recipe App <a name="about-project"></a>
 
+![image](https://user-images.githubusercontent.com/65109017/207917910-6e509a0e-c702-487a-a0e9-bfd84c2a176b.png)
+
+![image](https://user-images.githubusercontent.com/65109017/207918225-1036b739-a7cd-4bc2-87e3-8792798b1370.png)
+
+![image](https://user-images.githubusercontent.com/65109017/207918727-15a4995a-5ec7-4234-9dae-a7659bc2fba3.png)
+
+![image](https://user-images.githubusercontent.com/65109017/207918862-aec3d84f-51ff-4fb2-991c-627c6d1d9386.png)
+
+![image](https://user-images.githubusercontent.com/65109017/207919381-9b89686f-0aa6-413d-aa6e-187f7426f856.png)
+
+![image](https://user-images.githubusercontent.com/65109017/207919611-9667f32f-f717-427f-abd5-651ab9edd302.png)
+
+![image](https://user-images.githubusercontent.com/65109017/207919746-e5cbba7f-7c82-46c6-88d2-c9fe155bffdd.png)
+
+![image](https://user-images.githubusercontent.com/65109017/207919846-9fe32c3c-3938-4d6c-ab00-764fd928a43a.png)
+
+![image](https://user-images.githubusercontent.com/65109017/207920564-8c683110-cecf-42d3-935c-e7ea561ccb49.png)
+
+
+
+
 > Description of the Project
 
 **The Recipe App** keeps track of all our recipes, ingredients, and inventory. It will allow you to save ingredients, keep track of what you have, create recipes, and generate a shopping list based on what you have and what you are missing from a recipe.
